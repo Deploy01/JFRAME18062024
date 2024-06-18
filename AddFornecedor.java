@@ -1,26 +1,27 @@
 package uShoe;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
-import javax.swing.SwingConstants;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
-import java.awt.Component;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
+import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-public class AddFornecedor {
+public class AddFornecedor extends Window{
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -191,18 +192,31 @@ public class AddFornecedor {
 		gbc_textField_4.gridy = 4;
 		panel.add(textField_4, gbc_textField_4);
 		
-		panel.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblNewLabel_1, textField, lblNewLabel_22, textField_1, lblNewLabel_2_1, textField_2, lblNewLabel_2_2, textField_3, lblNewLabel_2_1_1, textField_4}));
-		
 		JPanel panel_1 = new JPanel();
 		frame.getContentPane().add(panel_1, BorderLayout.SOUTH);
 		
 		JButton btnSair = new JButton("Sair");
 		btnSair.setFont(new Font("Arial", Font.PLAIN, 16));
 		panel_1.add(btnSair);
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				voltarMenu(frame);
+				
+			}
+		});
 		
 		JButton btnCadastrarFornecedor = new JButton("Cadastrar");
 		btnCadastrarFornecedor.setFont(new Font("Arial", Font.PLAIN, 16));
 		panel_1.add(btnCadastrarFornecedor);
+		
+        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                System.out.println("Frame closing");
+                Menu2 menu = new Menu2();
+                menu.frame.setVisible(true);
+            }
+        });
 	}
 
 }

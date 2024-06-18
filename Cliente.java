@@ -1,4 +1,4 @@
-package gui;
+package uShoe;
 
 import java.awt.EventQueue;
 
@@ -14,6 +14,8 @@ import javax.swing.JButton;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Cliente extends JFrame {
 
@@ -219,6 +221,14 @@ public class Cliente extends JFrame {
 		
 		JButton btnVoltar = new JButton("Voltar");
 		panel_6.add(btnVoltar);
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				Menu2 menu = new Menu2();
+				menu.frame.setVisible(true);
+				
+			}
+		});
 	}
 
 }

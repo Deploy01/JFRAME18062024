@@ -1,4 +1,4 @@
-package gui;
+package uShoe;
 
 import java.awt.EventQueue;
 
@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -115,6 +117,14 @@ public class Pedido extends JFrame {
         
         JButton btnVoltar = new JButton("Voltar");
         panel_2.add(btnVoltar);
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				Menu2 menu = new Menu2();
+				menu.frame.setVisible(true);
+				
+			}
+		});
 	}
 
 }

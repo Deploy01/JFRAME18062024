@@ -1,4 +1,4 @@
-package gui;
+package uShoe;
 
 import java.awt.EventQueue;
 
@@ -6,6 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
@@ -50,6 +53,7 @@ public class Funcionario extends JFrame {
 	 * Create the frame.
 	 */
 	public Funcionario() {
+		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		setBounds(200, 200, 500, 600);
@@ -224,6 +228,14 @@ public class Funcionario extends JFrame {
 		
 		JButton btnVoltar = new JButton("Voltar");
 		panel_6.add(btnVoltar);
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				Menu2 menu = new Menu2();
+				menu.frame.setVisible(true);
+				
+			}
+		});
 	}
 
 }

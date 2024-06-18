@@ -14,10 +14,12 @@ import javax.swing.JButton;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AddProduto {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -192,6 +194,14 @@ public class AddProduto {
 		JButton btnSair = new JButton("Sair");
 		btnSair.setFont(new Font("Arial", Font.PLAIN, 16));
 		panel_1.add(btnSair);
+		btnSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				Menu2 menu = new Menu2();
+				menu.frame.setVisible(true);
+				
+			}
+		});
 		
 		JButton btnCadastrarFornecedor = new JButton("Cadastrar");
 		btnCadastrarFornecedor.setFont(new Font("Arial", Font.PLAIN, 16));
